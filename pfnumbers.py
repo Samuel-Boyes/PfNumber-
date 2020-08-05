@@ -1,4 +1,5 @@
 import copy
+import time
 
 class pnumber:
     #Stores numbers as a dictionary of prime factors, in the format of {factor:exponent}
@@ -237,11 +238,10 @@ x2 = pnumber(815,1)
 x3 = pnumber(1500,1)
 outlist = [pnumber(4,1),pnumber(17,4)]
 
-n=25
+n=15
+start = time.time()
 for ii in range(2,n+1):
-    print(ii)
+    print("Start:",ii)
     outlist.append(x1 - ((x2 - (x3/outlist[ii-2]))/outlist[ii-1]))
-    print(ii," ", outlist[ii].display()," ", outlist[ii].displayValue()," ",outlist[ii].getValue())
-
-#for ii in range(len(outlist)):
-#    print(ii," ", outlist[ii].display()," ", outlist[ii].displayValue()," ",outlist[ii].getValue())
+    print("Time: ",time.time() - start)
+    print(outlist[ii].display()," ", outlist[ii].displayValue()," ",outlist[ii].getValue())
