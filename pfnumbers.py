@@ -164,15 +164,13 @@ class pnumber:
             selfcopy.isNegative = selfcopy.isNegative * other.isNegative
             for key, value in other.values.items():
                 if(key in selfcopy.values):
-                    selfcopy.values[key] = selfcopy.values[key] + other.values[key]
-                else:
-                    selfcopy.values[key] = other.values[key]
-                if (key in selfcopy.values):
+                    selfcopy.values[key] = selfcopy.values[key] + value
                     if (selfcopy.values[key] == 0):
                         selfcopy.values.pop(key)
+                else:
+                    selfcopy.values[key] = value
         return selfcopy
             
-
     def __truediv__(self, other):
         selfcopy = copy.deepcopy(self)
         if (other.isZero == True):
@@ -188,16 +186,14 @@ class pnumber:
             selfcopy.isNegative = selfcopy.isNegative * other.isNegative
             for key, value in other.values.items():
                 if(key in selfcopy.values):
-                    selfcopy.values[key] = selfcopy.values[key] - other.values[key]
-                else:
-                    selfcopy.values[key] = 0 - other.values[key]
-                if (key in selfcopy.values):
+                    selfcopy.values[key] = selfcopy.values[key] - value
                     if (selfcopy.values[key] == 0):
                         selfcopy.values.pop(key)
+                else:
+                    selfcopy.values[key] = 0 - value
         return selfcopy
 
     def __add__(self, other):
-        
         selfcopy = copy.deepcopy(self)
         if (other.isZero == True):
             pass
